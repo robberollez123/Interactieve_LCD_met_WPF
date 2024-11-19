@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="Robbe_Rollez___Project_ICT.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Robbe_Rollez___Project_ICT"
+             mc:Ignorable="d" 
+             FontSize="30"
+             Width="Auto"
+             Height="Auto">
+
+    <!-- Define Resources -->
+    <UserControl.Resources>
+        <!-- Modern Gray Button Style -->
+        <Style x:Key="ModernGrayButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF4F4F4F"/>
+            <Setter Property="BorderBrush" Value="#FF333333"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="5" Opacity="0.2" BlurRadius="8"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover effect -->
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.2" To="#FF616161" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.2" To="#FF444444" Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <!-- Press effect -->
+                <EventTrigger RoutedEvent="Button.PreviewMouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.1" To="#FF4A4A4A" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.1" To="#FF2E2E2E" Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <!-- UI Layout -->
+    <Grid>
+        <StackPanel Orientation="Vertical" Background="LightGray">
+            <!-- Label -->
+            <Label Content="Instellingen" FontSize="50" FontWeight="Bold" Margin="10"/>
+
+            <!-- Thick Separator -->
+            <Separator Background="Black" Margin="0,20,0,20">
+                <Separator.LayoutTransform>
+                    <ScaleTransform ScaleY="3"/>
+                </Separator.LayoutTransform>
+            </Separator>
+
+            <!-- Contrast Slider -->
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Contrast LCD:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Slider x:Name="sldContrast" Width="185" Height="20" Margin="30" VerticalAlignment="Top" IsSnapToTickEnabled="True" Maximum="200" ValueChanged="sldContrast_ValueChanged"/>
+                <Label x:Name="lblContrast" Content="" HorizontalAlignment="Left" Width="Auto" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            </StackPanel>
+
+            <!-- Button with Style -->
+        </StackPanel>
+    </Grid>
+</UserControl>

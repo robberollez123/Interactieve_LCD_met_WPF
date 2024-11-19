@@ -1,0 +1,98 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="Robbe_Rollez___Project_ICT.CalculatorView"
+             Height="Auto" Width="Auto">
+    <UserControl.Resources>
+        <!-- Modern Gray Button Style -->
+        <Style x:Key="ModernGrayButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF4F4F4F"/>
+            <Setter Property="BorderBrush" Value="#FF333333"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="5" Opacity="0.2" BlurRadius="8"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover effect -->
+                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.2" To="#FF616161" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.2" To="#FF444444" Storyboard.TargetProperty="(Control.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <!-- Press effect -->
+                <EventTrigger RoutedEvent="UIElement.PreviewMouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.1" To="#FF4A4A4A" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.1" To="#FF2E2E2E" Storyboard.TargetProperty="(Control.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Background="LightGray">
+            <!-- Title Label -->
+            <Label Content="Rekenmachine" FontSize="50" FontWeight="Bold" Margin="0"/>
+            <Separator Background="Black" Margin="0,20,0,20">
+                <Separator.LayoutTransform>
+                    <ScaleTransform ScaleY="3"/>
+                    <!-- Scale the thickness -->
+                </Separator.LayoutTransform>
+            </Separator>
+            <StackPanel Orientation="Horizontal"/>
+
+            <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                <Label Content="Getal 1:" FontSize="30" Margin="10" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txbNumber1" Margin="10" FontSize="30" Width="100" HorizontalAlignment="Left" Background="Transparent"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                <Label Content="Getal 2:" FontSize="30" Margin="10" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txbNumber2" FontSize="30" Margin="10" Width="100" HorizontalAlignment="Left" Background="Transparent"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Selecteer operator:" FontSize="30" Margin="10, 0, 0, 0"/>
+                <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0" Width="Auto" HorizontalAlignment="Left">
+                    <RadioButton x:Name="rbAdd" FontSize="30" Content="+" Margin="5" IsChecked="True"/>
+                    <RadioButton x:Name="rbSubtract" FontSize="30" Content="-" Margin="5"/>
+                    <RadioButton x:Name="rbMultiply" FontSize="30" Content="*" Margin="5"/>
+                    <RadioButton x:Name="rbDivide" FontSize="30" Content="/" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="Auto" HorizontalAlignment="Left">
+                <Label Content="Resultaat:" FontSize="30" Margin="10" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txbResult" FontSize="30" Margin="10" Width="Auto" HorizontalAlignment="Left" IsReadOnly="True" Background="Transparent"/>
+            </StackPanel>
+    <Separator Background="Black" Margin="0,20,0,20">
+        <Separator.LayoutTransform>
+            <ScaleTransform ScaleY="3"/> <!-- Scale the thickness -->
+        </Separator.LayoutTransform>
+    </Separator>
+
+            <!-- Button to trigger calculation with modern gray styling -->
+            <Button Content="BEREKEN" Height="100" Width="Auto" Style="{StaticResource ModernGrayButtonStyle}" Click="btnBereken_Click"/>
+
+            <Button Content="CLEAR" Height="100" Width="Auto" Style="{StaticResource ModernGrayButtonStyle}" Click="btnClear_Click"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

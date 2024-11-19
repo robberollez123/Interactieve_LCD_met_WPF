@@ -1,0 +1,177 @@
+﻿<Window x:Class="Robbe_Rollez___Project_ICT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Robbe_Rollez___Project_ICT"
+        mc:Ignorable="d"
+        Title="Visual Studio C# Connectie met Arduino Uno" Height="719" Width="Auto"
+        Background="LightGray"
+        Closing="Window_Closing" FontSize="20" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+    <Window.Resources>
+        <!-- Modern Gray Button Style -->
+        <Style x:Key="ModernGrayButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF4F4F4F"/>
+            <Setter Property="BorderBrush" Value="#FF333333"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="5" Opacity="0.2" BlurRadius="8"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover effect using EventTrigger -->
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.2" To="#FF616161" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.2" To="#FF444444" Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <!-- Press effect using EventTrigger -->
+                <EventTrigger RoutedEvent="Button.PreviewMouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.1" To="#FF4A4A4A" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.1" To="#FF2E2E2E" Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Modern Gray ComboBox Style -->
+        <Style x:Key="ModernGrayComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#FFB0B0B0"/>
+            <Setter Property="BorderBrush" Value="#FF8C8C8C"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <!-- Hover effect using EventTrigger -->
+                <EventTrigger RoutedEvent="ComboBox.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.2" To="#FF9E9E9E" Storyboard.TargetProperty="(ComboBox.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.2" To="#FF757575" Storyboard.TargetProperty="(ComboBox.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+
+                <!-- Press effect using EventTrigger -->
+                <EventTrigger RoutedEvent="ComboBox.PreviewMouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Duration="0:0:0.1" To="#FF8E8E8E" Storyboard.TargetProperty="(ComboBox.Background).(SolidColorBrush.Color)" />
+                            <ColorAnimation Duration="0:0:0.1" To="#FF5A5A5A" Storyboard.TargetProperty="(ComboBox.BorderBrush).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" MinHeight="50"/>
+            <!-- Bovenste vaste rij -->
+            <RowDefinition/>
+            <!-- Onderste dynamische rij -->
+        </Grid.RowDefinitions>
+
+        <!-- Bovenste gedeelte met de ComboBox -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="DarkGray">
+            <Label Content="COM-Poort:"
+                   HorizontalAlignment="Left" 
+                   Margin="10,0,0,0" 
+                   VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center"
+                   Height="50" 
+                   Width="125"/>
+
+            <ComboBox x:Name="cmbComPorts" 
+                      ToolTip="COM-Poort opties"
+                      Style="{StaticResource ModernGrayComboBoxStyle}"
+                      VerticalContentAlignment="Center"
+                      SelectionChanged="cmbComPorts_SelectionChanged"
+                      Width="100"/>
+
+            <Button x:Name="btnConnect" 
+                    Content="CONNECT" 
+                    ToolTip="Connect"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource ModernGrayButtonStyle}" 
+                    Click="btnConnect_Click" IsEnabled="False"/>
+
+            <Button x:Name="btnDisconnect" 
+                    ToolTip="Disconnect"
+                    Content="DISCONNECT" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource ModernGrayButtonStyle}"
+                    Click="btnDisconnect_Click" IsEnabled="False"/>
+
+            <Button x:Name="btnClearLCD" 
+                    ToolTip="Clear LCD"
+                    Content="Clear LCD" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Style="{StaticResource ModernGrayButtonStyle}"
+                    Click="btnClearLCD_Click" IsEnabled="False"/>
+
+            <Label Content="Selecteer mode:" 
+                   Margin="10,0,0,0" 
+                   VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center"
+                   Height="50" 
+                   Width="151"/>
+
+            <ComboBox x:Name="cmbMode" 
+                      Style="{StaticResource ModernGrayComboBoxStyle}"
+                      VerticalContentAlignment="Center" 
+                      Margin="10, 0, 20, 0"
+                      Width="300"
+                      SelectionChanged="cmbMode_SelectionChanged">
+                <ComboBoxItem ToolTip="Binaire teller">Binaire teller</ComboBoxItem>
+                <ComboBoxItem ToolTip="Rekenmachine">Rekenmachine</ComboBoxItem>
+                <ComboBoxItem ToolTip="Komt binnenkort!" IsEnabled="False">HEX, BIN, DEC Omzetter</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnSettings" 
+                    ToolTip="Instellingen"
+                    HorizontalAlignment="Right"
+                    Content="" 
+                    Margin="10"
+                    Width="50"
+                    Style="{StaticResource ModernGrayButtonStyle}"
+                    Height="50" 
+                    Click="btnSettings_Click" IsEnabled="True" BorderBrush="Transparent">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\SettingsLogo.png"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
+        <ContentControl x:Name="contentControl" Grid.Row="1" Background="LightGray" FontSize="30">
+        </ContentControl>
+    </Grid>
+</Window>
