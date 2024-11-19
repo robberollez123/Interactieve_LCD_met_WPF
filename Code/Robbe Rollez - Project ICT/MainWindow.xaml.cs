@@ -70,7 +70,6 @@ namespace Robbe_Rollez___Project_ICT
                     cmbComPorts.IsEnabled = false;
                     btnDisconnect.IsEnabled = true;
                     btnClearLCD.IsEnabled = true;
-                    int hallo = 9;
                 }
                 else
                 {
