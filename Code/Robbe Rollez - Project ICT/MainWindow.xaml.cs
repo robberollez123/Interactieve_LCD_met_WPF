@@ -65,7 +65,6 @@ namespace Robbe_Rollez___Project_ICT
                     _serialPort.Open();
                     // Arduino laten weten dat connectie gelukt is.
                     _serialPort.Write("R");
-                    MessageBox.Show("Connectie gelukt");
 
                     cmbComPorts.IsEnabled = false;
                     btnDisconnect.IsEnabled = true;
@@ -103,8 +102,6 @@ namespace Robbe_Rollez___Project_ICT
                 _serialPort.Write("0");
                 // Seriële poort sluiten.
                 _serialPort.Close();
-
-                MessageBox.Show("Disconnected");
 
                 cmbComPorts.IsEnabled = true;
                 btnClearLCD.IsEnabled = false;

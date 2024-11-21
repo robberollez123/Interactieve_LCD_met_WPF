@@ -2,91 +2,142 @@
 
 // Initialiseer het LCD-scherm: RS, EN, D4, D5, D6, D7
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-uint8_t connectionLed = 8;
-int contrast= 100;
+uint8_t connectionLed = 8, waitForConnectionLed = 9, errorLed = 10;
+uint8_t resetDelay = 100;
+bool waitConnection = true;
+int contrast = 100;
 
 String receivedText = "";  // String to store incoming text
+
+unsigned long previousMillis = 0; // To store the last time the LED was updated
+int blinkState = 0; // State for the LED blinking pattern
 
 void setup() {
   analogWrite(6, contrast);
   pinMode(connectionLed, OUTPUT);
+  pinMode(waitForConnectionLed, OUTPUT);
+  pinMode(errorLed, OUTPUT);
   lcd.begin(16, 2);     // Zet het LCD-scherm op 16 kolommen en 2 rijen
   Serial.begin(9600);   // Start de seriële communicatie
-  lcd.setCursor(0,0);
-  lcd.print("Waiting for");
-  lcd.setCursor(0,1);
-  lcd.print("connection...");
+  lcd.setCursor(0, 0);
+  Startup();
 }
 
 void loop() {
   // Controleer of er gegevens beschikbaar zijn op de seriële poort
   if (Serial.available() > 0) {
+    if (errorLed == HIGH) {
+      digitalWrite(errorLed, LOW);
+    }
     char command = Serial.read(); // Read a single character from the serial buffer
 
-    if(command == 'Z'){
+    if (command == 'Z') {
       lcd.clear();
-      lcd.print("Connecting...");
-      delay(2000);
-    }
-    else if(command == 'R') {
+      lcd.print("Verbinden...");
+    } else if (command == 'R') {
       lcd.clear();
-      lcd.print("Connected");
+      lcd.print("Verbonden");
       digitalWrite(connectionLed, HIGH);
       delay(1000);
+      waitConnection = false;
       lcd.clear();
-      lcd.print("Waiting for mode");
-      lcd.setCursor(0,1);
-      lcd.print("selection...");
+      lcd.print("Wachten op mode");
+      lcd.setCursor(0, 1);
+      lcd.print("selectie...");
     }
     // Handle different commands for modes
     else if (command == 'A') {
       lcd.clear();
-      lcd.print("Binary Counter");
-    } 
-    else if (command == 'B') {
+      lcd.print("Binaire teller");
+    } else if (command == 'B') {
       lcd.clear();
-      lcd.print("Calculator");
-    } 
-    else if (command == 'C') {
+      lcd.print("Rekenmachine");
+    } else if (command == 'C') {
       lcd.clear();
-      lcd.print("Converter");
-    } 
-    else if (command == 'S') {
+      lcd.print("HEX/BIN/DEC");
+      lcd.setCursor(0, 1);
+      lcd.print("Omzetter");
+    } else if (command == 'S') {
       BinaireTeller();
-    }
-    else if (command == 'D') {
+    } else if (command == 'D') {
       Rekenmachine();
-    }
-    else if (command == 'P') {
+    } else if (command == 'P') {
       // Handle pause command
       // Do nothing, just pause the counter
-    }
-    else if(command == 'M'){
+    } else if (command == 'M') {
       SetContrast();
-    }
-    else if(command == '0'){
+    } else if (command == '0') {
       digitalWrite(connectionLed, LOW);
+      waitConnection = true;
       lcd.clear();
-      lcd.print("Waiting for");
-      lcd.setCursor(0,1);
-      lcd.print("connection...");
-    }
-    else if(command == 'X') {
+      lcd.print("Wachten op");
+      lcd.setCursor(0, 1);
+      lcd.print("connectie...");
+    } else if (command == 'X') {
       lcd.clear();
-      lcd.setCursor(0,0);
-    }
-    else {
+      lcd.setCursor(0, 0);
+      lcd.print("LCD Cleared");
+      delay(1000);
+      lcd.clear();
+      digitalWrite(waitForConnectionLed, HIGH);
+      delay(resetDelay);
+      digitalWrite(waitForConnectionLed, LOW);
+      delay(resetDelay);
+      digitalWrite(waitForConnectionLed, HIGH);
+      delay(resetDelay);
+      digitalWrite(waitForConnectionLed, LOW);
+      delay(resetDelay);
+    } else {
       // Handle invalid commands
       lcd.clear();
-      lcd.print("Waiting for mode");
-      lcd.setCursor(0,1);
-      lcd.print("connection...");
+      lcd.print("Ongeldige command");
+      digitalWrite(errorLed, HIGH);
     }
+  }
+
+  // Blink waitForConnectionLed in the specified pattern while waiting for connection
+  if (waitConnection) {
+    unsigned long currentMillis = millis();
+
+    switch (blinkState) {
+      case 0: // LED ON for the first blink
+        digitalWrite(waitForConnectionLed, HIGH);
+        previousMillis = currentMillis;
+        blinkState = 1;
+        break;
+      case 1: // Wait for 100ms
+        if (currentMillis - previousMillis >= 100) {
+          digitalWrite(waitForConnectionLed, LOW);
+          previousMillis = currentMillis;
+          blinkState = 2;
+        }
+        break;
+      case 2: // LED ON for the second blink
+        if (currentMillis - previousMillis >= 100) {
+          digitalWrite(waitForConnectionLed, HIGH);
+          previousMillis = currentMillis;
+          blinkState = 3;
+        }
+        break;
+      case 3: // Wait for 100ms
+        if (currentMillis - previousMillis >= 100) {
+          digitalWrite(waitForConnectionLed, LOW);
+          previousMillis = currentMillis;
+          blinkState = 4;
+        }
+        break;
+      case 4: // Wait for 1500ms before repeating the pattern
+        if (currentMillis - previousMillis >= 1500) {
+          blinkState = 0; // Reset to the beginning of the pattern
+        }
+        break;
+    }
+  } else {
+    digitalWrite(waitForConnectionLed, LOW); // Ensure LED is off when not waiting
   }
 }
 
-void BinaireTeller()
-{
+void BinaireTeller() {
   // Handle Binary Counter mode
   String binaryString = Serial.readStringUntil('\n'); // Read the binary string until newline
   binaryString.trim();  // Trim any unwanted white spaces or characters from the binary string
@@ -114,8 +165,20 @@ void Rekenmachine() {
   lcd.print(result);    // Display the result on the second line
 }
 
-void SetContrast(){
+void SetContrast() {
   String contrastValue = Serial.readStringUntil('\n');
   int newContrast = contrastValue.toInt();
   analogWrite(6, newContrast);
+}
+
+void Startup(){
+  lcd.print("Opstarten...");
+  delay(2000);
+  lcd.clear();
+  lcd.print("Opgestart");
+  delay(1000);
+  lcd.clear();
+  lcd.print("Wachten op");
+  lcd.setCursor(0,1);
+  lcd.print("connectie...");
 }
