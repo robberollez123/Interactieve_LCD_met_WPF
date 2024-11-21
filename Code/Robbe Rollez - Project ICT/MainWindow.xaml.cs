@@ -161,10 +161,10 @@ namespace Robbe_Rollez___Project_ICT
         {
             if (_serialPort.IsOpen)
             {
-                _serialPort.Write("-1");
-                contentControl.Content = new MainWindow();
+                _serialPort.Write("X");
+                contentControl.Content = null;
                 cmbMode.SelectedIndex = -1;
-                cmbComPorts.SelectedIndex = -1;
+                cmbComPorts.IsEnabled = true;
             }
         }
 

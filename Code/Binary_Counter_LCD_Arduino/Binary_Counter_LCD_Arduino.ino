@@ -71,13 +71,12 @@ void loop() {
       lcd.setCursor(0,1);
       lcd.print("connection...");
     }
-    else if(command == '-1') {
+    else if(command == 'X') {
       lcd.clear();
       lcd.setCursor(0,0);
     }
     else {
       // Handle invalid commands
-      digitalWrite(connectionLed, LOW);
       lcd.clear();
       lcd.print("Waiting for mode");
       lcd.setCursor(0,1);

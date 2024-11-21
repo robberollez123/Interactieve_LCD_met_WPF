@@ -47,3 +47,4 @@ C:\Users\robbe\Desktop\School 24-25\ICT\T ICT\Project\Code\Robbe Rollez - Projec
 C:\Users\robbe\Desktop\School 24-25\ICT\T ICT\Project\Code\Robbe Rollez - Project ICT\obj\Debug\net8.0-windows\ConverterView.g.cs
 C:\Users\robbe\Desktop\School 24-25\ICT\T ICT\Project\Code\Robbe Rollez - Project ICT\obj\Debug\net8.0-windows\Settings.g.cs
 C:\Users\robbe\Desktop\School 24-25\ICT\T ICT\Project\Code\Robbe Rollez - Project ICT\obj\Debug\net8.0-windows\Settings.baml
+C:\Users\robbe\Desktop\School 24-25\ICT\T ICT\Project\Code\Robbe Rollez - Project ICT\obj\Debug\net8.0-windows\Robbe Rollez - Project ICT.sourcelink.json
