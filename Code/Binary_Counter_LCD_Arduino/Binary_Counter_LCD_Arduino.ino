@@ -2,12 +2,14 @@
 
 // Initialiseer het LCD-scherm: RS, EN, D4, D5, D6, D7
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+uint8_t connectionLed = 8;
 int contrast= 100;
 
 String receivedText = "";  // String to store incoming text
 
 void setup() {
   analogWrite(6, contrast);
+  pinMode(connectionLed, OUTPUT);
   lcd.begin(16, 2);     // Zet het LCD-scherm op 16 kolommen en 2 rijen
   Serial.begin(9600);   // Start de seriële communicatie
   lcd.setCursor(0,0);
@@ -29,6 +31,7 @@ void loop() {
     else if(command == 'R') {
       lcd.clear();
       lcd.print("Connected");
+      digitalWrite(connectionLed, HIGH);
       delay(1000);
       lcd.clear();
       lcd.print("Waiting for mode");
@@ -62,6 +65,7 @@ void loop() {
       SetContrast();
     }
     else if(command == '0'){
+      digitalWrite(connectionLed, LOW);
       lcd.clear();
       lcd.print("Waiting for");
       lcd.setCursor(0,1);
@@ -73,6 +77,7 @@ void loop() {
     }
     else {
       // Handle invalid commands
+      digitalWrite(connectionLed, LOW);
       lcd.clear();
       lcd.print("Waiting for mode");
       lcd.setCursor(0,1);
