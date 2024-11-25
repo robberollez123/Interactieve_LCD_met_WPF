@@ -154,7 +154,7 @@
                       SelectionChanged="cmbMode_SelectionChanged">
                 <ComboBoxItem ToolTip="Binaire teller">Binaire teller</ComboBoxItem>
                 <ComboBoxItem ToolTip="Rekenmachine">Rekenmachine</ComboBoxItem>
-                <ComboBoxItem ToolTip="Komt binnenkort!" IsEnabled="False">HEX, BIN, DEC Omzetter</ComboBoxItem>
+                <ComboBoxItem ToolTip="Omzetter">HEX, BIN, DEC Omzetter</ComboBoxItem>
             </ComboBox>
             <Button x:Name="btnSettings" 
                     ToolTip="Instellingen"

@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\converterview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:converterview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\converterview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:converterview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\calculatorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:calculatorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\calculatorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:calculatorview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7919F1EF-8C7F-443E-A66A-D4CBD328ED78}|Robbe Rollez - Project ICT.csproj|c:\\users\\robbe\\desktop\\school 24-25\\ict\\t ict\\project\\code\\robbe rollez - project ict\\binarycounterview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -30,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAmwGUAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAmwGUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T17:14:20.495Z",
               "IsPinned": true,
@@ -48,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -56,7 +64,8 @@
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-11-14T17:14:31.75Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -68,6 +77,31 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConverterView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\ConverterView.xaml.cs",
+              "RelativeDocumentMoniker": "ConverterView.xaml.cs",
+              "ToolTip": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\ConverterView.xaml.cs",
+              "RelativeToolTip": "ConverterView.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAFUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T14:25:17.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConverterView.xaml",
+              "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\ConverterView.xaml",
+              "RelativeDocumentMoniker": "ConverterView.xaml",
+              "ToolTip": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\ConverterView.xaml",
+              "RelativeToolTip": "ConverterView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-25T14:11:18.615Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "CalculatorView.xaml",
               "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\CalculatorView.xaml",
@@ -75,11 +109,12 @@
               "ToolTip": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\CalculatorView.xaml",
               "RelativeToolTip": "CalculatorView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-19T22:30:56.707Z"
+              "WhenOpened": "2024-11-19T22:30:56.707Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "BinaryCounterView.xaml",
               "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\BinaryCounterView.xaml",
               "RelativeDocumentMoniker": "BinaryCounterView.xaml",
@@ -90,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Settings.xaml",
               "DocumentMoniker": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\Settings.xaml",
               "RelativeDocumentMoniker": "Settings.xaml",
