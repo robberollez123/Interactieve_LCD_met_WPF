@@ -1,4 +1,4 @@
-# Project ICT Rollez Robbe 2024-25
+# Rollez Robbe Project ICT 2024 - Interactieve LCD met WPF
 
 Welkom bij mijn project voor ICT! Dit project maakt gebruik van **Visual Studio WPF** en **C#** om diverse functionaliteiten te demonstreren op een 16x2 LCD-scherm, aangestuurd door een **Arduino Uno**.
 
