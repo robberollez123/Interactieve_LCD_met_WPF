@@ -1,40 +1,55 @@
 # Project ICT Rolllez Robbe 2024-25
 
-Dit project maakt gebruik van Visual Studio WPF en C# om diverse functionaliteiten weer te geven op een 16x2 LCD-scherm, aangestuurd door een Arduino Uno.
+Welkom bij het **Project ICT Rolllez Robbe**! Dit project maakt gebruik van **Visual Studio WPF** en **C#** om diverse functionaliteiten te demonstreren op een 16x2 LCD-scherm, aangestuurd door een **Arduino Uno**.
 
-## Visual Studio C#
+## Overzicht van het project
+Het doel van dit project is om via een Windows Presentation Foundation (WPF)-toepassing de communicatie en besturing van een 16x2 LCD-scherm te beheren. De Arduino Uno fungeert als interface en ontvangt data via de seriële poort.
 
-Het WPF-project in Visual Studio wordt gebruikt om data naar de Arduino Uno te sturen via de seriële poort. De data wordt vervolgens gebruikt om het 16x2 LCD-scherm aan te sturen en verschillende functionaliteiten weer te geven.
+### Technologieën gebruikt
+- **Visual Studio C#:** Voor de ontwikkeling van de WPF-toepassing.
+- **Arduino Uno:** Voor de aansturing van het LCD-scherm en verwerking van seriële data.
 
-## Arduino Uno
+## Functionaliteiten
 
-De Arduino Uno wordt in dit project voornamelijk gebruikt om gegevens te ontvangen via de seriële poort en deze te verwerken om de 16x2 LCD aan te sturen.
+### Seriële communicatie
+De WPF-toepassing communiceert met de Arduino Uno door specifieke karakters via de seriële poort te verzenden. Elk karakter activeert een bepaalde functionaliteit op het 16x2 LCD-scherm:
 
-### Seriële data versturen om de Arduino aan te sturen
+- **'A':** Toont de tekst "Binaire teller".
+- **'B':** Toont de tekst "Rekenmachine".
+- **'C':** Toont de tekst "HEX/BIN/DEC Omzetter".
 
-De volgende karakters worden vanuit de WPF-applicatie naar de Arduino verstuurd. Elk karakter heeft een specifieke functie op het LCD-scherm:
+### Doos en LED-indicatoren
+De fysieke behuizing van het project bevat drie LED's die de status van de applicatie aangeven:
 
-#### 'A'
-- **Functie**: Zet een binaire teller op het LCD-scherm.
+- **Groene LED (knipperend):**
+  - Geeft aan dat de WPF-toepassing wacht op een verbinding met de Arduino via de seriële poort.
+  - Maak verbinding door een COM-poort te selecteren en op **"CONNECT"** te klikken.
 
-#### 'B'
-- **Functie**: Zet een rekenmachine op het LCD-scherm.
+- **Blauwe LED:**
+  - Brandt wanneer de verbinding met de Arduino succesvol tot stand is gebracht.
 
-#### 'C'
-- **Functie**: Zet een omzetter voor HEX, BIN en DEC op het LCD-scherm.
+- **Rode LED:**
+  - Brandt wanneer een onbekend of onjuist commando is verzonden via de seriële poort. Dit wijst op een fout in de software.
 
-## Doos
+## Hoe gebruik je dit project?
+1. **Installeer benodigdheden:** Zorg ervoor dat je Visual Studio en de Arduino IDE hebt geïnstalleerd.
+2. **Compileer en upload:**
+   - Compileer de WPF-toepassing in Visual Studio.
+   - Upload de bijbehorende Arduino-code naar de Arduino Uno via de Arduino IDE.
+3. **Start de applicatie:**
+   - Open de WPF-toepassing en selecteer de juiste COM-poort.
+   - Klik op **"CONNECT"** om verbinding te maken.
+4. **Verken functionaliteiten:**
+   - Gebruik de knoppen in de applicatie om commando's ('A', 'B', 'C') naar de Arduino te sturen en observeer de output op het LCD-scherm.
 
-### Betekenis van de LED-indicatoren
+## Toekomstige uitbreidingen
+In toekomstige iteraties van dit project kunnen extra functionaliteiten worden toegevoegd, zoals:
+- Ondersteuning voor meer commando's en complexere functionaliteiten.
+- Verbetering van foutafhandeling in de software.
+- Integratie van andere sensoren en actuatoren.
 
-De doos bevat drie LED's die de status van de verbinding en foutmeldingen aangeven:
-
-#### Knipperende groene LED
-- **Betekenis**: De WPF-applicatie wacht op een verbinding met de Arduino via de seriële poort. Verbind de Arduino door een COM-poort te selecteren en op 'CONNECT' te klikken.
-
-#### Blauwe LED
-- **Betekenis**: De verbinding met de Arduino is succesvol tot stand gebracht.
-
-#### Rode LED
-- **Betekenis**: Er is een ongeldige of onbekende commando gestuurd via de seriële poort. Dit wijst op een fout in de software.
+## Contact
+Voor vragen of meer informatie, neem contact op met de projectontwikkelaar:
+- **Naam:** Robbe
+- **Jaar:** 2024-2025
 
