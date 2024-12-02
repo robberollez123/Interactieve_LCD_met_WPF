@@ -39,17 +39,4 @@ De fysieke behuizing van het project bevat drie LED's die de status van de appli
 3. **Start de applicatie:**
    - Open de WPF-toepassing en selecteer de juiste COM-poort.
    - Klik op **"CONNECT"** om verbinding te maken.
-4. **Verken functionaliteiten:**
-   - Gebruik de knoppen in de applicatie om commando's ('A', 'B', 'C') naar de Arduino te sturen en observeer de output op het LCD-scherm.
-
-## Toekomstige uitbreidingen
-In toekomstige iteraties van dit project kunnen extra functionaliteiten worden toegevoegd, zoals:
-- Ondersteuning voor meer commando's en complexere functionaliteiten.
-- Verbetering van foutafhandeling in de software.
-- Integratie van andere sensoren en actuatoren.
-
-## Contact
-Voor vragen of meer informatie, neem contact op met de projectontwikkelaar:
-- **Naam:** Robbe
-- **Jaar:** 2024-2025
 
