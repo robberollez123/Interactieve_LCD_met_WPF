@@ -48,32 +48,42 @@ namespace Robbe_Rollez___Project_ICT
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-            if (_serialPort != null)
+            try
             {
-                // Controle of de seriële poort al open is.
-                if (_serialPort.IsOpen)
+                if (_serialPort != null)
                 {
-                    // Seriële poort sluiten
-                    _serialPort.Close();
-                }
-                // Controle of de poortnaam geselecteerd is.
-                if (comPort != "None")
-                {
-                    // Seriële poort instellen.
-                    _serialPort.PortName = comPort;
-                    _serialPort.BaudRate = 9600;
-                    _serialPort.Open();
-                    // Arduino laten weten dat connectie gelukt is.
-                    _serialPort.Write("R");
+                    // Controle of de seriële poort al open is.
+                    if (_serialPort.IsOpen)
+                    {
+                        // Seriële poort sluiten
+                        _serialPort.Close();
+                    }
+                    // Controle of de poortnaam geselecteerd is.
+                    if (comPort != "None")
+                    {
+                        // Seriële poort instellen.
+                        _serialPort.PortName = comPort;
+                        _serialPort.BaudRate = 9600;
+                        _serialPort.Open();
+                        // Arduino laten weten dat connectie gelukt is.
+                        _serialPort.Write("R");
 
-                    cmbComPorts.IsEnabled = false;
-                    btnDisconnect.IsEnabled = true;
-                    btnClearLCD.IsEnabled = true;
+                        cmbComPorts.IsEnabled = false;
+                        btnDisconnect.IsEnabled = true;
+                        btnClearLCD.IsEnabled = true;
+                    }
+                    else
+                    {
+                        cmbComPorts.IsEnabled = true;
+                        btnDisconnect.IsEnabled = false;
+                        btnClearLCD.IsEnabled = false;
+                        MessageBox.Show("Selecteer een COM-poort", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Selecteer een COM-poort", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -123,6 +133,9 @@ namespace Robbe_Rollez___Project_ICT
             {
                 switch (selectedItem.Content.ToString())
                 {
+                    case "None":
+                        contentControl.Content = null;
+                        break;
                     case "Binaire teller":
                         contentControl.Content = new BinaryCounterView(_serialPort);
                         if (_serialPort.IsOpen)
@@ -169,6 +182,16 @@ namespace Robbe_Rollez___Project_ICT
         {
             cmbMode.SelectedIndex = -1;
             contentControl.Content = new Settings(_serialPort);
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

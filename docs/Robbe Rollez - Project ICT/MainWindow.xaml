@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Robbe_Rollez___Project_ICT"
         mc:Ignorable="d"
-        Title="Visual Studio C# Connectie met Arduino Uno" Height="719" Width="Auto"
+        Title="Visual Studio C# Connectie met Arduino Uno" Width="Auto"
         Background="LightGray"
-        Closing="Window_Closing" FontSize="20" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize">
+        WindowStyle="None"
+        Closing="Window_Closing" FontSize="20" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowState="Maximized">
     <Window.Resources>
         <!-- Modern Gray Button Style -->
         <Style x:Key="ModernGrayButtonStyle" TargetType="Button">
@@ -30,16 +31,6 @@
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <!-- Hover effect using EventTrigger -->
-                <EventTrigger RoutedEvent="Button.MouseEnter">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ColorAnimation Duration="0:0:0.2" To="#FF616161" Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
-                            <ColorAnimation Duration="0:0:0.2" To="#FF444444" Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-
                 <!-- Press effect using EventTrigger -->
                 <EventTrigger RoutedEvent="Button.PreviewMouseDown">
                     <BeginStoryboard>
@@ -150,25 +141,41 @@
                       Style="{StaticResource ModernGrayComboBoxStyle}"
                       VerticalContentAlignment="Center" 
                       Margin="10, 0, 20, 0"
-                      Width="300"
+                      Width="250"
                       SelectionChanged="cmbMode_SelectionChanged">
+                <ComboBoxItem ToolTip="None">None</ComboBoxItem>
                 <ComboBoxItem ToolTip="Binaire teller">Binaire teller</ComboBoxItem>
                 <ComboBoxItem ToolTip="Rekenmachine">Rekenmachine</ComboBoxItem>
                 <ComboBoxItem ToolTip="Omzetter">HEX, BIN, DEC Omzetter</ComboBoxItem>
             </ComboBox>
             <Button x:Name="btnSettings" 
                     ToolTip="Instellingen"
-                    HorizontalAlignment="Right"
-                    Content="" 
+                    HorizontalAlignment="Right" 
                     Margin="10"
                     Width="50"
                     Style="{StaticResource ModernGrayButtonStyle}"
                     Height="50" 
                     Click="btnSettings_Click" IsEnabled="True" BorderBrush="Transparent">
                 <Button.Background>
-                    <ImageBrush ImageSource="Images\SettingsLogo.png"/>
+                    <ImageBrush ImageSource="/SettingsLogo1.png"/>
                 </Button.Background>
             </Button>
+            <Button x:Name="btnMinimize"
+                    ToolTip="Minimize"
+                    HorizontalAlignment="Right"
+                    Width="60"
+                    Height="50"
+                    Margin="10"
+                    Content="-"
+                    Style="{StaticResource ModernGrayButtonStyle}" Click="btnMinimize_Click"/>
+            <Button x:Name="btnClose"
+                    ToolTip="Afsluiten"
+                    HorizontalAlignment="Right"
+                    Width="60"
+                    Height="50"
+                    Margin="10"
+                    Content="X"
+                    Style="{StaticResource ModernGrayButtonStyle}" Click="btnClose_Click"/>
         </StackPanel>
 
         <ContentControl x:Name="contentControl" Grid.Row="1" Background="LightGray" FontSize="30">

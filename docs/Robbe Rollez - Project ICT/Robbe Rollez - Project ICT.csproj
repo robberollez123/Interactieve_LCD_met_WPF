@@ -10,7 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\SettingsLogo.png" />
+    <None Remove="SettingsLogo.jpg" />
+    <None Remove="SettingsLogo1.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,15 +19,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\SettingsLogo.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="CalculatorView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="SettingsLogo.jpg" />
+    <Resource Include="SettingsLogo1.png" />
   </ItemGroup>
 
 </Project>

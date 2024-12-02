@@ -1735,11 +1735,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\Robbe Rollez - Project ICT.csproj",
+      "projectUniqueName": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\docs\\Robbe Rollez - Project ICT\\Robbe Rollez - Project ICT.csproj",
       "projectName": "Robbe Rollez - Project ICT",
-      "projectPath": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\Robbe Rollez - Project ICT.csproj",
+      "projectPath": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\docs\\Robbe Rollez - Project ICT\\Robbe Rollez - Project ICT.csproj",
       "packagesPath": "C:\\Users\\robbe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\Code\\Robbe Rollez - Project ICT\\obj\\",
+      "outputPath": "C:\\Users\\robbe\\Desktop\\School 24-25\\ICT\\T ICT\\Project\\docs\\Robbe Rollez - Project ICT\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\robbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
