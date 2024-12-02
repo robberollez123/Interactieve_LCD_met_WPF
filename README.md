@@ -1,6 +1,6 @@
-# Project ICT Rolllez Robbe 2024-25
+# Project ICT Rollez Robbe 2024-25
 
-Welkom bij het **Project ICT Rolllez Robbe**! Dit project maakt gebruik van **Visual Studio WPF** en **C#** om diverse functionaliteiten te demonstreren op een 16x2 LCD-scherm, aangestuurd door een **Arduino Uno**.
+Welkom bij mijn project voor ICT! Dit project maakt gebruik van **Visual Studio WPF** en **C#** om diverse functionaliteiten te demonstreren op een 16x2 LCD-scherm, aangestuurd door een **Arduino Uno**.
 
 ## Overzicht van het project
 Het doel van dit project is om via een Windows Presentation Foundation (WPF)-toepassing de communicatie en besturing van een 16x2 LCD-scherm te beheren. De Arduino Uno fungeert als interface en ontvangt data via de seriële poort.
