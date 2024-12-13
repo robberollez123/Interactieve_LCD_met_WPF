@@ -20,6 +20,7 @@ namespace Robbe_Rollez___Project_ICT
     {
         SerialPort _serialPort;
         string? comPort;
+        bool isSettingsOpen = true;
 
         public MainWindow()
         {
@@ -39,9 +40,9 @@ namespace Robbe_Rollez___Project_ICT
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if ((_serialPort != null) && (_serialPort.IsOpen))
+            if ((_serialPort != null) && _serialPort.IsOpen)
             {
-                _serialPort.Write("0");
+                _serialPort.Write("X");
                 _serialPort.Dispose();
             }
         }
@@ -66,7 +67,7 @@ namespace Robbe_Rollez___Project_ICT
                         _serialPort.BaudRate = 9600;
                         _serialPort.Open();
                         // Arduino laten weten dat connectie gelukt is.
-                        _serialPort.Write("R");
+                        _serialPort.Write("M");
 
                         cmbComPorts.IsEnabled = false;
                         btnDisconnect.IsEnabled = true;
@@ -108,8 +109,8 @@ namespace Robbe_Rollez___Project_ICT
             // Controle of de seriële poort open is.
             if (_serialPort.IsOpen)
             {
-                // 0 schrijven naar microcontroller.
-                _serialPort.Write("0");
+                // X schrijven naar microcontroller.
+                _serialPort.Write("X");
                 // Seriële poort sluiten.
                 _serialPort.Close();
 
@@ -140,7 +141,7 @@ namespace Robbe_Rollez___Project_ICT
                         contentControl.Content = new BinaryCounterView(_serialPort);
                         if (_serialPort.IsOpen)
                         {
-                            _serialPort.Write("A");
+                            _serialPort.Write("B");
                         }
                         break;
 
@@ -148,7 +149,7 @@ namespace Robbe_Rollez___Project_ICT
                         contentControl.Content = new CalculatorView(_serialPort);
                         if (_serialPort.IsOpen)
                         {
-                            _serialPort.Write("B");
+                            _serialPort.Write("C");
                         }
                         break;
 
@@ -156,7 +157,7 @@ namespace Robbe_Rollez___Project_ICT
                         contentControl.Content = new ConverterView();
                         if (_serialPort.IsOpen)
                         {
-                            _serialPort.Write("C");
+                            _serialPort.Write("O");
                         }
                         break;
                     default:
@@ -171,7 +172,7 @@ namespace Robbe_Rollez___Project_ICT
         {
             if (_serialPort.IsOpen)
             {
-                _serialPort.Write("X");
+                _serialPort.Write("R");
                 contentControl.Content = null;
                 cmbMode.SelectedIndex = -1;
                 cmbComPorts.IsEnabled = true;
@@ -181,7 +182,22 @@ namespace Robbe_Rollez___Project_ICT
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             cmbMode.SelectedIndex = -1;
-            contentControl.Content = new Settings(_serialPort);
+
+            if (_serialPort.IsOpen && _serialPort != null)
+            {
+                if (isSettingsOpen)
+                {
+                    _serialPort.Write("I");
+                    contentControl.Content = new Settings(_serialPort);
+                    isSettingsOpen = false;
+                }
+                else
+                {
+                    _serialPort.Write("X");
+                    contentControl.Content = null;
+                    isSettingsOpen = true;
+                }
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

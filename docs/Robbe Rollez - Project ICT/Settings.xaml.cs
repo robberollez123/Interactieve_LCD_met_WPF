@@ -26,16 +26,33 @@ namespace Robbe_Rollez___Project_ICT
         {
             InitializeComponent();
             _serialPort = serialPort;
+            sldContrast.Value = 100;
         }
 
         private void sldContrast_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (_serialPort.IsOpen)
             {
-                _serialPort.Write("M");
+                _serialPort.Write("I");
                 string contrast = sldContrast.Value.ToString();
                 _serialPort.WriteLine(contrast);
                 lblContrast.Content = contrast;
+            }
+        }
+
+        private void btnResetContrast_Click(object sender, RoutedEventArgs e)
+        {
+            if(_serialPort != null && _serialPort.IsOpen)
+            {
+                sldContrast.Value = 100;
+            }
+        }
+
+        private void btnTestLeds_Click(object sender, RoutedEventArgs e)
+        {
+            if(_serialPort.IsOpen && _serialPort != null)
+            {
+                _serialPort.Write("0");
             }
         }
     }

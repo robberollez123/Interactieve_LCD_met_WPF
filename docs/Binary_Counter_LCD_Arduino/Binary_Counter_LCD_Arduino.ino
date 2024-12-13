@@ -34,7 +34,7 @@ void loop() {
     if (command == 'Z') {
       lcd.clear();
       lcd.print("Verbinden...");
-    } else if (command == 'R') {
+    } else if (command == 'M') {
       lcd.clear();
       lcd.print("Verbonden");
       digitalWrite(connectionLed, HIGH);
@@ -46,34 +46,39 @@ void loop() {
       lcd.print("selectie...");
     }
     // Handle different commands for modes
-    else if (command == 'A') {
+    else if (command == 'B') { // Toon binaire teller
       lcd.clear();
       lcd.print("Binaire teller");
-    } else if (command == 'B') {
+    } else if (command == 'C') { // Toon rekenmachine
       lcd.clear();
       lcd.print("Rekenmachine");
-    } else if (command == 'C') {
+    } else if (command == 'O') { // Toon omzetter
       lcd.clear();
       lcd.print("HEX/BIN/DEC");
       lcd.setCursor(0, 1);
       lcd.print("Omzetter");
-    } else if (command == 'S') {
+    } else if (command == 'S') {  // Start Binaire teller
       BinaireTeller();
-    } else if (command == 'D') {
+    } else if (command == 'E') {  // Start Rekenmachine
       Rekenmachine();
-    } else if (command == 'P') {
+    } else if (command == 'P') {  // Pauze
       // Handle pause command
       // Do nothing, just pause the counter
-    } else if (command == 'M') {
+    } else if (command == 'I') { // Instellen van contrast
+      lcd.clear();
+      lcd.setCursor(0,0);
+      lcd.print("Instellingen");
       SetContrast();
-    } else if (command == '0') {
+    } else if (command == 'X') { // Verbreken van connectie
       digitalWrite(connectionLed, LOW);
+      digitalWrite(waitForConnectionLed, LOW);
+      digitalWrite(errorLed, LOW);
       waitConnection = true;
       lcd.clear();
       lcd.print("Wachten op");
       lcd.setCursor(0, 1);
       lcd.print("connectie...");
-    } else if (command == 'X') {
+    } else if (command == 'R') {
       lcd.clear();
       lcd.setCursor(0, 0);
       lcd.print("LCD Cleared");
@@ -87,11 +92,21 @@ void loop() {
       delay(resetDelay);
       digitalWrite(waitForConnectionLed, LOW);
       delay(resetDelay);
-    } else {
+    } else if(command == '0'){
+      lcd.clear();
+      lcd.setCursor(0,0);
+      lcd.print("Instellingen");
+      lcd.setCursor(0,1);
+      lcd.print("Testen leds...");
+      TestLeds();
+    }
+    else {
       // Handle invalid commands
       lcd.clear();
-      lcd.print("Ongeldige command");
+      lcd.print("Ongeldige cmd");
       digitalWrite(errorLed, HIGH);
+      digitalWrite(connectionLed, LOW);
+      digitalWrite(waitForConnectionLed, LOW);
     }
   }
 
@@ -137,6 +152,41 @@ void loop() {
   }
 }
 
+void TestLeds(){
+  digitalWrite(connectionLed, LOW);
+  digitalWrite(waitForConnectionLed, LOW);
+  digitalWrite(errorLed, LOW);
+  delay(1000);
+
+  digitalWrite(connectionLed, HIGH);
+  delay(400);
+  digitalWrite(connectionLed, LOW);
+  delay(100);
+  digitalWrite(waitForConnectionLed, HIGH);
+  delay(400);
+  digitalWrite(waitForConnectionLed, LOW);
+  delay(100);
+  digitalWrite(errorLed, HIGH);
+  delay(400);
+  digitalWrite(errorLed, LOW);
+  delay(100);
+  digitalWrite(connectionLed, HIGH);
+  delay(400);
+  digitalWrite(connectionLed, LOW);
+  delay(100);
+  digitalWrite(waitForConnectionLed, HIGH);
+  delay(400);
+  digitalWrite(waitForConnectionLed, LOW);
+  delay(100);
+  digitalWrite(errorLed, HIGH);
+  delay(400);
+  digitalWrite(errorLed, LOW);
+  delay(100);
+
+  lcd.clear();
+  digitalWrite(connectionLed, HIGH);
+}
+
 void BinaireTeller() {
   // Handle Binary Counter mode
   String binaryString = Serial.readStringUntil('\n'); // Read the binary string until newline
@@ -168,6 +218,10 @@ void Rekenmachine() {
 void SetContrast() {
   String contrastValue = Serial.readStringUntil('\n');
   int newContrast = contrastValue.toInt();
+
+  lcd.setCursor(0, 1);
+  lcd.print("Contrast: " + contrastValue);
+
   analogWrite(6, newContrast);
 }
 

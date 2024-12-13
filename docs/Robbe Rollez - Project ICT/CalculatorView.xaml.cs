@@ -39,7 +39,7 @@ namespace Robbe_Rollez___Project_ICT
 
         private void btnBereken_Click(object sender, RoutedEventArgs e)
         {
-            _serialPort.Write("D");
+            _serialPort.Write("E");
 
             string operation = GetSelectedOperation();
 

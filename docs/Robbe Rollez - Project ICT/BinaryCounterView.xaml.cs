@@ -69,7 +69,7 @@ namespace Robbe_Rollez___Project_ICT
         {
             if (_serialPort.IsOpen)
             {
-                _serialPort.Write("0");
+                _serialPort.Write("X");
                 _serialPort.Dispose();
             }
         }

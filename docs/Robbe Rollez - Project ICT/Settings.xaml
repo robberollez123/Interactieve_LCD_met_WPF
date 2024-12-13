@@ -73,9 +73,29 @@
                 <Label Content="Contrast LCD:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Slider x:Name="sldContrast" Width="185" Height="20" Margin="30" VerticalAlignment="Top" IsSnapToTickEnabled="True" Maximum="200" ValueChanged="sldContrast_ValueChanged"/>
                 <Label x:Name="lblContrast" Content="" HorizontalAlignment="Left" Width="Auto" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnResetContrast" 
+                         ToolTip="Reset contrast"
+                         Content="RESET" 
+                         HorizontalAlignment="Left" 
+                         VerticalAlignment="Center" 
+                         Style="{StaticResource ModernGrayButtonStyle}" Click="btnResetContrast_Click"
+                         />
             </StackPanel>
-
-            <!-- Button with Style -->
+            <Separator Background="Black" Margin="0,20,0,20">
+                <Separator.LayoutTransform>
+                    <ScaleTransform ScaleY="3"/>
+                </Separator.LayoutTransform>
+            </Separator>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Test leds" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="btnTestLeds" 
+                       ToolTip="Test leds"
+                       Content="TEST" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Center" 
+                       Style="{StaticResource ModernGrayButtonStyle}" Click="btnTestLeds_Click"
+                       />   
+            </StackPanel>  
         </StackPanel>
     </Grid>
 </UserControl>
