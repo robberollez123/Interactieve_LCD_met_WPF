@@ -14,15 +14,19 @@ Het doel van dit project is om via een Windows Presentation Foundation (WPF)-toe
 ### Seriële communicatie
 De WPF-toepassing communiceert met de Arduino Uno door specifieke karakters via de seriële poort te verzenden. Elk karakter activeert een bepaalde functionaliteit op het 16x2 LCD-scherm:
 
-- **0:** De connectie met de seriële poort verbreken.
-- **'A':** Toont de tekst "Binaire teller".
-- **'B':** Toont de tekst "Rekenmachine".
-- **'C':** Toont de tekst "HEX/BIN/DEC Omzetter".
-- **'S':** Start de binaire teller.
-- **'P':** De binaire teller op pauze zetten. 
-- **'D':** Het resultaat van de rekenmachine uitrekenen.
-- **'M':** Instellen van het contrast voor de LCD via instellingen.
-- **'X':** De LCD resetten en de groene LED 2x laten knipperen.
+- **'Z':** Verbinden...
+- **'M':** Verbonden
+- **'B':** Toont de tekst "Binaire teller"
+- **'C':** Toont de tekst "Rekenmachine"
+- **'O':** Toont de tekst "HEX/BIN/DEC Omzetter"
+- **'S':** Start de binaire teller
+- **'E':** Start de rekenmachine
+- **'P':** Zet de binaire teller op pauze
+- **'I':** Instellen van het contrast
+- **'X':** Verbreek de verbinding
+- **'R':** Reset het LCD
+- **'0':** Test de LEDs
+- **Anders:** Ongeldig commando
 
 ### Doos en LED-indicatoren
 De fysieke behuizing van het project bevat drie LED's die de status van de applicatie aangeven:
